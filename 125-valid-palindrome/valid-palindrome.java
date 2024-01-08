@@ -6,23 +6,13 @@ class Solution {
     }
 
     public boolean isPalindrome(String s) {
-        String str = s.trim().replaceAll("[^A-Za-z0-9]", "");
-        System.out.print(str);
-        if(str.length() == 0)
-        {
-            return true;
-        }
-        int left = 0;
-        int right = str.length() - 1;
-        while(left < right)
-        {
-            if(!isEqual(str.charAt(left) , str.charAt(right)))
-            {
-                return false;
-            }
-            left++;
-            right--;
-        }
-        return true;
+        String str = s.trim().replaceAll("[^A-Za-z0-9]", "").toLowerCase();
+        System.out.println(str);
+        StringBuilder newStr = new StringBuilder(str);
+        newStr.reverse();
+        String reversed = newStr.toString();
+        System.out.println(reversed);
+        return str.equals(reversed);
+        
     }
 }
